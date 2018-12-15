@@ -17,7 +17,11 @@ public class PostRequest : MonoBehaviour {
     IEnumerator Upload()
     {
         WWWForm form = new WWWForm();
-        form.AddField("username", "ram");
+        string user = UserID.userIDForSession;
+
+        form.AddField("username", user);
+        //form.AddField("product", );
+
         Debug.Log(form.data);
 
         using (UnityWebRequest www = UnityWebRequest.Put("http://ec2-3-82-10-206.compute-1.amazonaws.com:3000/cart","form"))
